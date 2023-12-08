@@ -1,0 +1,287 @@
+ @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+ :root{
+    --primary-color: #8a2c02;
+    --secundary-color: #d75404;
+    --terciary-color: #f08b33;
+    --dark-color: #07000e;
+    --ligth-color: #ededed;
+ }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans";
+    color: var(--dark-color);
+}
+
+/* boot CSS */
+
+img{width: 100%;max-width: 390px;}
+
+.center{
+    max-width: 1280px;
+    padding: 0 2%;
+    margin: 0 auto;
+}
+
+.descricao-autor{display: flex;}
+
+.flex{flex: 1;}
+
+.w33{width: 33.33%}
+.w50 {width: 50%;padding: 0 10px;}
+
+.clear{clear:both;}
+.rigth{float: right;}
+.left{float: left;}
+
+/* Estilização do site */
+
+header, footer{
+    background: linear-gradient(45deg, var(--primary-color),var(--secundary-color) , var(--terciary-color));
+}
+
+header .logo{
+    font-size: 23px;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: white;
+}
+
+header{height: 5rem;padding: 1.7% 0;}
+
+.mobile{display: none;}
+nav.desktop ul, nav.mobile ul {list-style: none;}
+nav.desktop li{
+    font-weight: 300;
+    display: inline-block;
+    font-size: 15px;
+    padding: 0 15px;
+    text-transform: uppercase;
+}
+nav.desktop a{color: white;text-decoration: none;}
+
+section.banner-principal{
+    width: 100%;
+    height: 600px;
+    background-image: url('imagens/banner-principal.jpg');
+    opacity: 0.9;
+    background-size: cover;
+    position: relative;
+}
+
+div.overlay {
+    background: #000;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    position: absolute;
+    z-index: 1;
+  }
+
+  section.banner-principal form{
+    width: 92%;
+    max-width: 600px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  section.banner-principal form h2{
+    color: var(--ligth-color);
+    font-weight: 300;
+    font-size: 30px;
+    text-align: center;
+  }
+
+  section.banner-principal form input[type=email]{
+        width: 100%;
+        height: 70px;
+        background: var(--ligth-color);
+        font-size: 32px;
+        padding-left: 10px;
+        margin-top: 10px;
+        border-radius: 7px;
+    }
+  
+
+  section.banner-principal form input[type=submit]{
+        width: 100%;
+        height: 70px;
+        background: var(--secundary-color);
+        color: var(--ligth-color);
+        font-size: 22px;
+        padding-left: 10px;
+        margin-top: 10px;
+        cursor: pointer;
+        border: 0;
+        border-radius: 7px;
+  }
+
+section.descricao-autor{padding: 30px 30px;}
+section.descricao-autor h2 {
+    font-size: 25px;
+    font-weight: 400;
+    color: #444;
+}
+
+section.descricao-autor p{
+    font-size: 16px;
+    font-weight: 400;
+    color: #444;
+    margin-top: 10px;
+    text-align: justify;
+}
+
+img.rigth {
+    border: 5px solid var(--primary-color);
+
+}
+
+section.especialidades{
+    padding: 40px 0;
+    background: var(--secundary-color);
+}
+
+section.especialidades h2.title{
+    font: 30px;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+}
+
+section.especialidades .box-especialidades{margin:30px 0}
+
+section.especialidades .box-especialidades h3{
+    text-align: center;
+    color: white;
+    font-size: 40px;
+}
+
+section.especialidades .box-especialidades h4{
+    text-align: center;
+    color: white;
+    font-weight: 300;
+    font-size: 25px;
+}
+
+
+section.especialidades .box-especialidades p {
+    color: rgb(214, 214, 214); 
+    margin-top: 18px;
+    text-align: justify;
+    padding: 20px;
+}
+
+section.extras{padding: 30px 0;}
+
+.servicos-container, .depoimentos-container{padding: 0 5%;}
+
+section.extras .title{
+    color: var(--primary-color);
+    font-weight: 400;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+div.depoimentos-single{
+    padding: 15px 0;
+    border-bottom: 1px solid var(--secundary-color);
+}
+
+p.depoimento-descricao{
+    font-size: 15px;
+    text-align: justify;
+    font-weight: 300;
+    color: #444;
+}
+
+p.nome-autor{
+    font-size: 15px;
+    font-weight: bold;
+    color: #444;
+}
+
+div.servicos ul {
+    margin: 20px 0;
+  
+}
+
+div.servicos li {
+    margin-bottom: 15px;
+    font-size: 15px;
+    color:#444;
+    font-weight: 300;
+    text-align: justify;
+}
+
+footer{
+    padding: 30px 0;
+}
+
+footer p {
+    color: white;
+    text-align: center;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .w50, .w33{
+        width: 100%;
+        padding: 20px;
+    }
+    .descricao-autor{display: block;}
+    img.rigth{
+        margin: 0 auto;
+        float: none !important;
+    }
+    .box-especialidades{padding: 20px 0;}
+}
+@media screen and (max-width:700px) {
+    nav.desktop{
+        display: none;
+    }
+    nav.mobile {
+        display: block;
+    }
+    nav.mobile ul{
+        z-index: 3;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 75px;
+       width: 100%;
+        text-align: center;
+    }
+
+    nav.mobile li {
+        width: 100%;
+        display: block;
+        background: linear-gradient(45deg, var(--primary-color),var(--secundary-color) , var(--terciary-color));;
+        border-bottom: var(--dark-color);
+        line-height: 30px;
+        font-size: 15px;
+        font-weight: 300;
+    }
+
+    nav.mobile li a {
+        text-decoration: none;
+        color: white;
+        display: block;
+    }
+
+    .icone-menu-mobile{
+        font-size: 27px;
+        cursor: pointer; 
+    }
+    
+    header div.center{margin-top: 2%;}
+}
