@@ -14,7 +14,18 @@
 </head>
 
 <body>
+     <?php
+         $url = isset($_GET['url']) ? $_GET['url'] : 'home';
+         switch($url){
+            case'sobre':
+                echo '<target target="sobre" />';
+                break;
 
+                case 'servicos':
+                echo '<target target="servicos" />';
+                break;
+         }
+     ?>
     <header>
         <div class="center">
             <div class="logo left"><a href="">L O G O M A R C A</a></div><!--logo-->
@@ -44,18 +55,30 @@
 
       if(file_exists('pages/'.$url.'.php')){
         include('pages/'.$url.'.php');
-      }else{
+      }else{ 
+        if($url != 'sobre' && $url != 'servicos'){
+        $page404 =true;
         include('pages/404.php');
+      }else{
+        include('pages/home.php');
+      }
+
       }
     ?>
 
-    <footer>
+    <footer <?php if(isset($page404) && $page404 == true){echo 'class="fixed"'; }?>>
         <div class="center">
             <p>Todos os direitos reservados ©</p>
         </div><!--center-->
     </footer>
     <script src="<?php echo INCLUDE_PATH; ?>js/jquery.js"></script>
     <script src="<?php echo INCLUDE_PATH; ?>js/scripts.js"></script>
+    <?php 
+        if($url == 'contato'){
+        ?>
+    <script defer src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDHPNQxozOzQSZ-djvWGOBUsHkBUoT_qH4&callback=Function.prototype'></script>
+    <script src="js/init.map.js"></script>
+    <?php } ?>
 </body>
 
 </html>

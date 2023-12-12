@@ -18,6 +18,11 @@
 
 /* boot CSS */
 
+html, body {
+    overflow-x: hidden;
+    height: 100%;
+}
+
 img{width: 100%;max-width: 390px;}
 
 .center{
@@ -221,6 +226,12 @@ div.servicos li {
     text-align: justify;
 }
 
+footer.fixed{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
 footer{
     padding: 30px 0;
 }
@@ -246,6 +257,60 @@ footer p {
     }
     .box-especialidades{padding: 20px 0;}
 }
+
+/* 404 page */
+section.page-404 .onCenter {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-10%);
+    left: -10px;
+}
+
+#map{width: 100%;height: 400px;}
+
+.contato-container{
+    text-align: center;
+    padding-top: 40px;
+}
+
+.contato-container input[type=text], .contato-container input[type=email], 
+.contato-container textarea{
+   width: 100%;
+   height: 40px;
+   padding-left: 8px;
+   font-size: 16px;
+   max-width: 700px;
+   color: var(--primary-color);
+   border: 1px solid var(--secundary-color);
+   margin: 8px 0;
+   outline-color: var(--terciary-color);
+}
+
+.contato-container textarea{ 
+   height: 80px !important;
+   resize: vertical;
+   padding: 8px;
+}
+
+.contato-container input[type=submit]{
+    background: var(--primary-color);
+    width: 140px;
+    height: 40px;
+    color: white;
+    border: none;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.contato-container input[type=submit]:hover {
+    background-color: var(--secundary-color);
+}
+
 @media screen and (max-width:700px) {
     nav.desktop{
         display: none;
@@ -286,3 +351,4 @@ footer p {
     
     header div.center{margin-top: 2%;}
 }
+
