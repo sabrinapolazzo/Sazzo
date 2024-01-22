@@ -1,15 +1,19 @@
+
 <div id="map">
 </div>
 <div class="contato-container">
-        <div class="center">
-            <input type="text" name="Nome" placeholder="Nome...">
+    <div class="center">
+        <form method="post" action=""> 
+            <input required type="text" name="nome" autocomplete="on" placeholder="Nome...">
             <div></div>
-            <input type="email" name="Email" placeholder="E-mail...">
+            <input required type="email" name="email" autocomplete="on" placeholder="E-mail...">
             <div></div>
-            <input type="text" name="Telefone" placeholder="Telefone...">
+            <input required type="text" name="telefone" autocomplete="on" placeholder="Telefone...">
             <div></div>
-            <textarea name="mensagem" placeholder="Deixe uma mensagem..."></textarea>
+            <textarea required name="mensagem" autocomplete="off" placeholder="Deixe uma mensagem..."></textarea>
+            <input type="hidden" name="identificador" value="form_contato">
             <div></div>
             <input type="submit" name="acao">
-        </div>
+        </form>
     </div>
+</div>
