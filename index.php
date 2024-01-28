@@ -1,4 +1,6 @@
 <?php include('config.php') ?>
+<?php Site::updateUsuarioOnline(); ?>
+<?php Site::contador(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +13,7 @@
     <script src="https://kit.fontawesome.com/82a94bfb1a.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" href="<?php echo INCLUDE_PATH; ?>imagens/favicon.png">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>style.css">
-    <title>Projeto 01</title>
+    <title>Sazzo</title>
 </head>
 
 <body>
@@ -29,16 +31,18 @@
             break;
     }
     ?>
-     
+     <!-- Mensagens de sucesso e erro ao enviar formularios -->
     <div class="sucesso">Formulário enviado com sucesso</div>
     <div class="erro">Não conseguimos enviar o formulário</div>
+
+    <!-- Overlay-loading enquanto são feitas as requisições -->
     <div class="overlay-loading">
     <img src="<?php echo INCLUDE_PATH ?>imagens/ajax-load.gif">
     </div><!--overlay-loading-->
 
     <header>
         <div class="center">
-            <div class="logo left"><a href="">L O G O M A R C A</a></div><!--logo-->
+            <div class="logo left"><a href="">S A Z Z O</a></div><!--logo-->
             <nav class="desktop rigth">
                 <ul>
                     <li><a href="<?php echo INCLUDE_PATH; ?>">HOME</a></li>

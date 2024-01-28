@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/82a94bfb1a.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="<?php echo INCLUDE_PATH; ?>imagens/favicon.png">
     <title>Painel de controle</title>
     <link href="<?php echo INCLUDE_PATH_PAINEL ?>css/style.css" rel="stylesheet">
 </head>
@@ -23,9 +24,13 @@
                 $sql = MySql::conectar()->prepare("SELECT * FROM `tb_admin.users` WHERE user = ? AND password = ? ");
                 $sql->execute(array($user, $password));
                 if ($sql->rowCount() == 1) {
+                    $info = $sql->fetch();
                     $_SESSION['login'] = true;
                     $_SESSION['user'] = $user;
+                    $_SESSION['name'] = $info['name'];
+                    $_SESSION['type_user'] = $info['type_user'];
                     $_SESSION['password'] = $password;
+                    $_SESSION['img'] = $info['img'];
                     header('Location: ' . INCLUDE_PATH_PAINEL);
                     die();
                 } else {
