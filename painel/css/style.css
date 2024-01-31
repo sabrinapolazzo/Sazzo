@@ -233,11 +233,13 @@ div.box-usuario, .nome-usario {
     letter-spacing: 1px;
 }
 
+.nome-usuario p {
+    margin-bottom: 0px;
+}
 
 .flex.components-menu{
     flex-direction: column;
     margin-left: 270px;
-    max-width: calc(100% - 270px);
 }
 
 .metricas.container {
@@ -254,7 +256,7 @@ div.box-usuario, .nome-usario {
 }
 
 .items-menu{
-    padding: 0 12px;
+    padding: 15px 5px;
 }
 
 .items-menu h2{
@@ -263,16 +265,16 @@ div.box-usuario, .nome-usario {
     font-size: 12px;
     font-weight: 500;
     text-transform: uppercase;
-    margin: 10px 0;
     color: black;
     background: var(--bg-main-begePastel);
+    border-bottom: 1px solid var(--bg-main-begePastel);
 }
 
 .items-menu a{
    color: white;
    text-decoration: none;
    display: block;
-   border-bottom: 2px solid var(--bg-main-begePastel);
+   border-bottom: 1px solid var(--bg-main-begePastel);
    font-size: 14px;
    padding: 8px;
 }
@@ -285,6 +287,15 @@ thead tr th{
 
 background: var(--bg-main-mediumBlue) !important;
 color: white !important;
+}
+
+.menu-active{
+    background:#b17d5d;
+}
+
+.menu-active::before{
+    content:'↳ ';
+    color: black;
 }
 
 @media(min-width:769px){

@@ -15,6 +15,7 @@ spl_autoload_register($autoload);
 // Caminhos do site 
 define('INCLUDE_PATH', 'http://localhost/php-project01/');
 define('INCLUDE_PATH_PAINEL',INCLUDE_PATH . 'painel/');
+define('BASE_DIR_PAINEL',__DIR__.'/painel');
 
 // Banco de dados
 define('HOST', 'localhost');
@@ -22,21 +23,44 @@ define('DATABASE', 'sazzo');
 define('PASSWORD', '');
 define('USER', 'root');
 
+// variaveis cargo painel 
 
-// Nome da empresa 
-
-define('NOME_EMPRESA', 'Sazzo');
-
-//funções 
-
-// Retorna o usuario do painel de controle
-function getUser($typeUser){
-    $arr = [
+$cargos = [
     '0' => 'Basic',
     '1' => 'Administrador',
     '2' => 'Super User'];
-    
-     return $arr[$typeUser];
+
+// Nome da empresa 
+define('NOME_EMPRESA', 'Sazzo');
+
+
+//funções do painel
+function getUser($indice){
+     return Painel::$cargos[$indice];
+}
+
+function menuSelecionado($par){
+    $url = explode('/',@$_GET['url'])[0];
+    if ($url == $par) {
+        echo 'class="menu-active"';
+    }
+}
+
+function permissaoMenu($permissao){
+    if($_SESSION['type_user'] >= $permissao){
+        return;
+    }else{
+        echo 'style="display:none;"';
+    }
+}
+
+function permissaoPagina($permissao){
+    if($_SESSION['type_user'] >= $permissao){
+        return;
+    }else{
+        include('painel/pages/permissao_negada.php');
+        die();
+}
 }
 
 ?>

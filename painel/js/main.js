@@ -18,7 +18,6 @@ $(function() {
         $('.flex.components-menu').animate({'margin-left' : '0'},function() {
             open = false;
         });
-        $('.container').css('min-width', '1320px');
        }else{
         // fechar menu
         $('aside').animate({'width' : targetSizeMenu+'px'},function() {

@@ -6,7 +6,7 @@ if (session_status() == PHP_SESSION_NONE) {
 <?php
 if (isset($_GET['loggout'])) {
     Painel::loggout();
-};
+}
 ?>
 
 <!DOCTYPE html>
@@ -45,18 +45,17 @@ if (isset($_GET['loggout'])) {
             </div>
             <div class="items-menu">
                 <h2>Cadastros</h2>
-                <a href="<?php echo INCLUDE_PATH_PAINEL ?>cadastrar-depoimentos">Cadastrar depoimentos</a>
-                <a href="">Cadastrar serviços</a>
-                <a href="">Cadastrar Slider</a>
+                <a <?php menuSelecionado('cadastrar-depoimentos'); ?> href="<?php echo INCLUDE_PATH_PAINEL ?>cadastrar-depoimentos">Cadastrar depoimentos</a>
+                <a <?php menuSelecionado('cadastrar-servicos'); ?> href="">Cadastrar serviços</a>
+                <a <?php menuSelecionado('cadastrar-especialidades'); ?> href="">Cadastrar especialidades</a>
                 <h2>Gestão</h2>
-                <a href="">Listar Depoimentos</a>
-                <a href="">Listar Serviços</a>
-                <a href="">Listar Sliders</a>
+                <a <?php menuSelecionado('listar-depoimentos'); ?> href="">Listar Depoimentos</a>
+                <a <?php menuSelecionado('listar-servicos'); ?> href="">Listar Serviços</a>
                 <h2>Administração do Painel</h2>
-                <a href="">Adicionar Usuários</a>
-                <a href="<?php echo INCLUDE_PATH_PAINEL ?>editar-usuario">Editar Usuários</a>
+                <a <?php menuSelecionado('adicionar-usuario'); ?> <?php permissaoMenu(2)?> href="<?php echo INCLUDE_PATH_PAINEL ?>adicionar-usuario">Adicionar Usuários</a>
+                <a <?php menuSelecionado('editar-usuario'); ?> href="<?php echo INCLUDE_PATH_PAINEL ?>editar-usuario">Editar Usuários</a>
                 <h2>Configuração Geral</h2>
-                <a href="">Editar</a>
+                <a <?php menuSelecionado('editar-site'); ?> href="">Editar Site</a>
 
             </div>
         </aside>
