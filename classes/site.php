@@ -46,12 +46,19 @@ class Site
         return $sql->rowCount();
     }
 
-    
+
     public static function PegaVisitasHoje()
     {
         $sql = MySql::conectar()->prepare("SELECT * FROM `tb_admin.visits` WHERE day = ? ");
         $sql->execute(array(date('Y-m-d')));
 
         return $sql->rowCount();
+    }
+
+    public static function listData($table, $limit, $order)
+    {
+        $sql = MySql::conectar()->prepare("SELECT * FROM `$table` ORDER BY $order DESC LIMIT $limit ");
+        $sql->execute();
+        return $sql->fetchAll();
     }
 }

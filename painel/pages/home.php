@@ -22,9 +22,10 @@
     </div>
 </div><!--box-metricas-->
 
-<div class="metricas container text-center bg-main-begePastel p-4 mb-3 mt-3">
+<div class="grid text-center container p-0">
+<div class="metricas text-center bg-main-begePastel p-4 mb-3 mt-3 g-col-6">
 
-<h6 class="mb-3"><i class="fa fa-rocket"></i> Usuários Online</h6>
+<h6 class="mb-3"><i class="fa fa-rocket"></i> Usuários Online no Site</h6>
 
 <table class="table">
   <thead>
@@ -45,4 +46,35 @@
   </tbody>
 </table>
 
+</div>
+
+<div class="metricas text-center bg-main-begePastel p-4 mb-3 mt-3 g-col-6">
+
+<h6 class="mb-3"><i class="fa fa-rocket"></i> Usuários do Painel</h6>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col bg-main-mediumBlue">Usuário</th>
+      <th scope="col">Tipo de usuário</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+  <?php 
+  $panelUsers = MySql::conectar()->prepare("SELECT * FROM `tb_admin.users`");
+  $panelUsers->execute();
+  $panelUsers = $panelUsers->fetchAll();
+  foreach ($panelUsers as $key => $value) {
+?>
+    <tr>
+      <td><?php echo $value['user']?></td>
+      <td><?php echo getUser($value['type_user']);?></td>
+    </tr>
+    <?php }?>
+  </tbody>
+</table>
+
+</div>
 </div>

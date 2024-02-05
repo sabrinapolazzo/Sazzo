@@ -1,3 +1,23 @@
+<?php
+
+if (isset($_COOKIE['remeber'])) {
+    $user = $_COOKIE['user'];
+    $password = $_COOKIE['password'];
+    $sql = MySql::conectar()->prepare("SELECT * FROM `tb_admin.users` WHERE user = ? AND password = ? ");
+    $sql->execute(array($user, $password));
+    if ($sql->rowCount() == 1);
+    $info = $sql->fetch();
+    $_SESSION['login'] = true;
+    $_SESSION['user'] = $user;
+    $_SESSION['name'] = $info['name'];
+    $_SESSION['type_user'] = $info['type_user'];
+    $_SESSION['password'] = $password;
+    $_SESSION['img'] = $info['img'];
+    die();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" class="login">
 
@@ -17,6 +37,10 @@
             <input type="text" name="login" placeholder="Login...">
             <input type="password" name="password" placeholder="Senha...">
             <input type="submit" name="acao" value="Logar!">
+            <div class="remember">
+                <label style="margin-top: 10px;" class="lembrar">Lembrar-me</label>
+                <input type="checkbox" id="remember" name="remember">
+            </div>
             <?php
             if (isset($_POST['acao'])) {
                 $user = $_POST['login'];
@@ -31,6 +55,12 @@
                     $_SESSION['type_user'] = $info['type_user'];
                     $_SESSION['password'] = $password;
                     $_SESSION['img'] = $info['img'];
+                    if (isset($_POST['remember'])) {
+                        setcookie('remember', true, time() + (60 * 60 * 24), '/');
+                        setcookie('user', $user, time() + (60 * 60 * 24), '/');
+                        setcookie('user', $password, time() + (60 * 60 * 24), '/');
+                    }
+
                     header('Location: ' . INCLUDE_PATH_PAINEL);
                     die();
                 } else {

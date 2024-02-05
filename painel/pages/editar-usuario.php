@@ -18,9 +18,9 @@
           if ($usuario->updateUsuario($nome, $senha, $imagem)) {
             $_SESSION['img'] = $imagem;
             Painel::alertUpdate('success', 'Atualizado com sucesso junto com a imagem');
-             // Redirecionar para outra página após a atualização bem-sucedida
-            //  header("refresh:2;url= ".INCLUDE_PATH_PAINEL);
-             exit();
+            // Redirecionar para outra página após a atualização bem-sucedida
+            header("refresh:1;url= " . INCLUDE_PATH_PAINEL);
+            exit();
           } else {
             Painel::alertUpdate('erro', 'Houve uma falha ao enviar os dados junto com a imagem');
           }
@@ -31,7 +31,7 @@
         $imagem = $imagem_atual;
         if ($usuario->updateUsuario($nome, $senha, $imagem)) {
           Painel::alertUpdate('success', 'Atualizado com sucesso');
-          header("refresh:2;url= ".INCLUDE_PATH_PAINEL);
+          header("refresh:2;url= " . INCLUDE_PATH_PAINEL);
         } else {
           Painel::alertUpdate('erro', 'Houve uma falha ao enviar os dados do formulário');
         }

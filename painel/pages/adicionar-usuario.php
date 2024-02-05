@@ -12,8 +12,8 @@ permissaoPagina(2);
       $login = $_POST['login'];
       $nome = $_POST['name'];
       $senha = $_POST['password'];
-      $imagem = $_FILES['img'];
       $cargo = $_POST['cargo'];
+      $imagem = $_FILES['img'];
      
       if ($login == '') {
         Painel::alertUpdate('erro', 'O login está vazio!');
@@ -35,7 +35,9 @@ permissaoPagina(2);
         }else{
           // adicionar ao banco de dados
           $usuario = new Usuario();
-          Painel::alertUpdate('sucesso', 'O cadastro do usuário'.$login.' foi feito com sucesso!');
+          $imagem = Painel::uploadFile($imagem);
+          $usuario->addUsers($login,$nome,$senha,$cargo,$imagem);
+          Painel::alertUpdate('success', 'O cadastro do usuário '.$login.' foi feito com sucesso!');
         }
       }
 
@@ -73,7 +75,7 @@ permissaoPagina(2);
         </div>
 
         <div class="mt-3 flex justify-content-center">
-            <input class="form-control w-25 bg-primary-color text-light text-center" name="acao" type="submit" value="Atualizar!">
+            <input class="form-control w-25 bg-primary-color text-light text-center" name="acao" type="submit" value="Adicionar!">
         </div>
     </div>
 </form>

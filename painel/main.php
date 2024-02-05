@@ -35,7 +35,7 @@ if (isset($_GET['loggout'])) {
                     </div>
                 <?php } else { ?>
                     <div class="img-usuario">
-                        <img src="<?php echo INCLUDE_PATH_PAINEL ?>uploads/<?php echo $_SESSION['img']; ?>">
+                        <a href="<?php echo INCLUDE_PATH_PAINEL?>">><img src="<?php echo INCLUDE_PATH_PAINEL ?>uploads/<?php echo $_SESSION['img']; ?>"></a>
                     </div>
                 <?php } ?>
                 <div class="nome-usuario">
@@ -49,7 +49,7 @@ if (isset($_GET['loggout'])) {
                 <a <?php menuSelecionado('cadastrar-servicos'); ?> href="">Cadastrar serviços</a>
                 <a <?php menuSelecionado('cadastrar-especialidades'); ?> href="">Cadastrar especialidades</a>
                 <h2>Gestão</h2>
-                <a <?php menuSelecionado('listar-depoimentos'); ?> href="">Listar Depoimentos</a>
+                <a <?php menuSelecionado('listar-depoimentos'); ?> href="<?php echo INCLUDE_PATH_PAINEL ?>listar-depoimentos">Listar Depoimentos</a>
                 <a <?php menuSelecionado('listar-servicos'); ?> href="">Listar Serviços</a>
                 <h2>Administração do Painel</h2>
                 <a <?php menuSelecionado('adicionar-usuario'); ?> <?php permissaoMenu(2)?> href="<?php echo INCLUDE_PATH_PAINEL ?>adicionar-usuario">Adicionar Usuários</a>

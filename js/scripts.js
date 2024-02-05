@@ -40,6 +40,7 @@ $(function () {
             }, 1000);
 
             $('.container-principal').fadeIn(1000);
+            window.history.pushState('','',contato);
 
             return false;
         })

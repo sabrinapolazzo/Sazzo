@@ -28,5 +28,16 @@ $(function() {
         });
        }
     })
+
+    $('[actionBtn=delete]').click(function(){
+        var txt;
+        var r = confirm("Tem certeza que deseja excluir o registro?");
+        if(r == true){
+            return true;
+        }else{
+            return false;
+        }
+    })
+
 })
 

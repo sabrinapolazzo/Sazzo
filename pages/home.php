@@ -1,3 +1,4 @@
+
 <section class="banner-principal">
     <div class="overlay"></div>
     <div class="center">
@@ -13,12 +14,13 @@
 <section class="descricao-autor center">
     <div class="w50 flex">
         <h2>Sabrina C. Polazzo</h2>
-        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, obcaecati quibusdam repellat voluptates necessitatibus adipisci
-            perferendis corrupti reiciendis eius, molestias, unde officiis sed odit maxime tempora magni id modi numquam! Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Debitis in inventore nam blanditiis nobis unde vel molestias ipsam placeat officiis minus, cupiditate recusandae. Sequi commodi laboriosam fuga rem, perferendis consequuntur.</P>
-        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, obcaecati quibusdam repellat voluptates necessitatibus adipisci
-            perferendis corrupti reiciendis eius, molestias, unde officiis sed odit maxime tempora magni id modi numquam! Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Debitis in inventore nam blanditiis nobis unde vel molestias ipsam placeat officiis minus, cupiditate recusandae. Sequi commodi laboriosam fuga rem, perferendis consequuntur.</P>
+        <P>Há um ano e meio, mergulhei de cabeça no fascinante mundo da programação, iniciando minha jornada rumo ao desenvolvimento web full stack. Neste período de aprendizado intenso, descobri uma paixão ardente pelo desafiador universo do back-end.<br>
+
+            Meu foco e determinação me conduziram às entranhas dos servidores e bancos de dados, onde a lógica se entrelaça para formar sistemas robustos. Minha jornada no back-end é marcada pela mestria na linguagem PHP, uma ferramenta poderosa para dar forma à funcionalidade de aplicativos web.<br>
+
+            Entretanto, meu interesse não se restringe apenas ao código do servidor. Sou uma habilidosa front-end, navegando com destreza pelos domínios do JavaScript, jQuery, HTML e CSS. Minha compreensão holística do desenvolvimento web me permite criar interfaces intuitivas e dinâmicas, elevando a experiência do usuário.<br>
+
+            Meu entusiasmo vai além do código; abraço desafios com um sorriso, sempre em busca de aprimorar minhas habilidades e explorar novos horizontes tecnológicos. Meu comprometimento com a excelência me impulsiona a seguir as últimas tendências e melhores práticas, garantindo que meus projetos não apenas atendam, mas superem as expectativas.<br></P>
     </div><!--w50-->
     <div class="w50 flex">
         <img class="rigth" src="<?php echo INCLUDE_PATH; ?>imagens\imagem-autor.jpg" alt="Imagem Autor">
@@ -58,24 +60,22 @@
     <div class="center">
         <div id="depoimentos" class="w50 left depoimentos-container">
             <h2 class="title">Depoimentos dos nossos clientes</h2>
-            <div class="depoimentos-single">
-                <p class="depoimento-descricao">"Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, nobis blanditiis alias exercitationem molestias aspernatur temporibus a voluptate cupiditate sequi
-                    dicta quos ducimus quas explicabo ratione consequatur quis rem culpa? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, dolorem at! Aperiam numquam
-                    libero aut laboriosam iste autem nemo itaque porro ducimus eos. Ratione voluptatem ea quisquam possimus, eaque molestiae."</p>
-                <p class="nome-autor">Lorem Ipsum</p>
-            </div><!--depoimentos-singles-->
-            <div class="depoimentos-single">
-                <p class="depoimento-descricao">"Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, nobis blanditiis alias exercitationem molestias aspernatur temporibus a voluptate cupiditate sequi
-                    dicta quos ducimus quas explicabo ratione consequatur quis rem culpa? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, dolorem at! Aperiam numquam
-                    libero aut laboriosam iste autem nemo itaque porro ducimus eos. Ratione voluptatem ea quisquam possimus, eaque molestiae."</p>
-                <p class="nome-autor">Lorem Ipsum</p>
-            </div><!--depoimentos-singles-->
-            <div class="depoimentos-singls">
-                <p class="depoimento-descricao">"Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, nobis blanditiis alias exercitationem molestias aspernatur temporibus a voluptate cupiditate sequi
-                    dicta quos ducimus quas explicabo ratione consequatur quis rem culpa? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, dolorem at! Aperiam numquam
-                    libero aut laboriosam iste autem nemo itaque porro ducimus eos. Ratione voluptatem ea quisquam possimus, eaque molestiae."</p>
-                <p class="nome-autor">Lorem Ipsum</p>
-            </div><!--depoimentos-singles-->
+
+            <?php
+            $limit = 3;
+            $order = 'date';
+            $table = 'tb_site.testimonial';
+            $testimonial = Site::listData($table, $limit, $order);
+            foreach ($testimonial as $key => $value) {
+            ?>
+                <div class="depoimentos-single">
+                    <p class="depoimento-descricao">"<?php echo $value['testimonial']; ?>"</p>
+                    <p class="nome-autor"><?php echo $value['name']; ?> - <?php echo date('d/m/Y', strtotime($value['date'])) ?></p>
+                </div><!--depoimentos-singles-->
+            <?php
+            }
+            ?>
+
         </div><!--w50-->
         <div id="servicos" class="w50 left servicos-container">
             <h2 class="title">Serviços</h2>
