@@ -1,7 +1,4 @@
 <?php
-
-?>
-<?php
 if (isset($_GET['id'])) {
     $id = (int)$_GET['id'];
     $testimonial = Painel::select('tb_site.testimonial','id=?',array($id));
@@ -16,7 +13,7 @@ if (isset($_GET['id'])) {
         <?php
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['acao'])) {
                 if (Painel::update($_POST)) {
-                    Painel::alertUpdate('success', 'O cadastro do depoimento foi feito com sucesso!');
+                    Painel::alertUpdate('success', 'A edição do depoimento foi feita com sucesso!');
                     $testimonial = Painel::select('tb_site.testimonial','id=?',array($id));
                 }else{
                     Painel::alertUpdate('erro', 'Campos vazios não são permitidos.');

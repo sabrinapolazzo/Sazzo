@@ -230,6 +230,7 @@
 
  img.rigth {
      border: 5px solid var(--primary-color);
+     border-radius: 50%;
 
  }
 

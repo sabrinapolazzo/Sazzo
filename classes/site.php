@@ -55,10 +55,17 @@ class Site
         return $sql->rowCount();
     }
 
-    public static function listData($table, $limit, $order)
+    public static function listData($table, $limit = null, $order = null)
     {
-        $sql = MySql::conectar()->prepare("SELECT * FROM `$table` ORDER BY $order DESC LIMIT $limit ");
-        $sql->execute();
-        return $sql->fetchAll();
+        if ($order == null || $limit == null) {
+            $sql = MySql::conectar()->prepare("SELECT * FROM `$table`");
+            $sql->execute();
+            return $sql->fetch();
+        } else {
+            $sql = MySql::conectar()->prepare("SELECT * FROM `$table` ORDER BY $order DESC LIMIT $limit ");
+            $sql->execute();
+            return $sql->fetchAll();
+        }
     }
+
 }

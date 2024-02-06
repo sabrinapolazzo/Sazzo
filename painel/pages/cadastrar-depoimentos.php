@@ -8,13 +8,11 @@
             } else {
                 Painel::alertUpdate('erro', 'Campos vazios não são permitidos');
             }
-        } else {
-            Painel::alertUpdate('erro', 'Campo de data ausente no formulário');
-        }
+        } 
 
 
         ?>
-        <h6 class="mb-3"><i class="fa fa-rocket"></i> Cadastrar Depoimentos</h6>
+        <h6 class="mb-3"><i class="fa fa-id-card-o"></i> Cadastrar Depoimentos</h6>
         <div class="mb-3">
             <label for="name" class="form-label">Nome da Pessoa</label>
             <input type="text" id="name" name="name" class="form-control" autocomplete="off">

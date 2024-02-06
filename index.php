@@ -1,6 +1,9 @@
 <?php include('config.php') ?>
 <?php Site::updateUsuarioOnline(); ?>
 <?php Site::contador(); ?>
+<?php 
+$infoSite = Site::listData('tb_site.config');
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +16,7 @@
     <script src="https://kit.fontawesome.com/82a94bfb1a.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" href="<?php echo INCLUDE_PATH; ?>imagens/favicon.png">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>style.css">
-    <title>Sazzo</title>
+    <title><?php echo $infoSite['title']?></title>
 </head>
 
 <body>

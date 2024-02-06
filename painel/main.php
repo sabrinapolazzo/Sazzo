@@ -46,16 +46,16 @@ if (isset($_GET['loggout'])) {
             <div class="items-menu">
                 <h2>Cadastros</h2>
                 <a <?php menuSelecionado('cadastrar-depoimentos'); ?> href="<?php echo INCLUDE_PATH_PAINEL ?>cadastrar-depoimentos">Cadastrar depoimentos</a>
-                <a <?php menuSelecionado('cadastrar-servicos'); ?> href="">Cadastrar serviços</a>
+                <a <?php menuSelecionado('cadastrar-servicos'); ?> href="<?php echo INCLUDE_PATH_PAINEL ?>cadastrar-servicos">Cadastrar serviços</a>
                 <a <?php menuSelecionado('cadastrar-especialidades'); ?> href="">Cadastrar especialidades</a>
                 <h2>Gestão</h2>
                 <a <?php menuSelecionado('listar-depoimentos'); ?> href="<?php echo INCLUDE_PATH_PAINEL ?>listar-depoimentos">Listar Depoimentos</a>
-                <a <?php menuSelecionado('listar-servicos'); ?> href="">Listar Serviços</a>
+                <a <?php menuSelecionado('listar-servicos'); ?> href="<?php echo INCLUDE_PATH_PAINEL ?>listar-servicos">Listar Serviços</a>
                 <h2>Administração do Painel</h2>
                 <a <?php menuSelecionado('adicionar-usuario'); ?> <?php permissaoMenu(2)?> href="<?php echo INCLUDE_PATH_PAINEL ?>adicionar-usuario">Adicionar Usuários</a>
                 <a <?php menuSelecionado('editar-usuario'); ?> href="<?php echo INCLUDE_PATH_PAINEL ?>editar-usuario">Editar Usuários</a>
                 <h2>Configuração Geral</h2>
-                <a <?php menuSelecionado('editar-site'); ?> href="">Editar Site</a>
+                <a <?php menuSelecionado('editar-site'); ?> href="<?php echo INCLUDE_PATH_PAINEL ?>editar-site">Editar Site</a>
 
             </div>
         </aside>
