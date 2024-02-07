@@ -29,7 +29,7 @@ if (isset($_GET['loggout'])) {
 
                 <?php
                 if ($_SESSION['img'] == '') {
-                ?>
+                ?>s
                     <div class="avatar-usuario">
                         <i class="fa fa-user"></i>
                     </div>
@@ -53,7 +53,7 @@ if (isset($_GET['loggout'])) {
                 <a <?php menuSelecionado('listar-servicos'); ?> href="<?php echo INCLUDE_PATH_PAINEL ?>listar-servicos">Listar Serviços</a>
                 <h2>Administração do Painel</h2>
                 <a <?php menuSelecionado('adicionar-usuario'); ?> <?php permissaoMenu(2)?> href="<?php echo INCLUDE_PATH_PAINEL ?>adicionar-usuario">Adicionar Usuários</a>
-                <a <?php menuSelecionado('editar-usuario'); ?> href="<?php echo INCLUDE_PATH_PAINEL ?>editar-usuario">Editar Usuários</a>
+                <a <?php menuSelecionado('editar-usuario'); ?> href="<?php echo INCLUDE_PATH_PAINEL ?>editar-usuario">Editar Usuário</a>
                 <h2>Configuração Geral</h2>
                 <a <?php menuSelecionado('editar-site'); ?> href="<?php echo INCLUDE_PATH_PAINEL ?>editar-site">Editar Site</a>
 

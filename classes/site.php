@@ -62,7 +62,7 @@ class Site
             $sql->execute();
             return $sql->fetch();
         } else {
-            $sql = MySql::conectar()->prepare("SELECT * FROM `$table` ORDER BY $order DESC LIMIT $limit ");
+            $sql = MySql::conectar()->prepare("SELECT * FROM `$table` ORDER BY $order LIMIT $limit ");
             $sql->execute();
             return $sql->fetchAll();
         }

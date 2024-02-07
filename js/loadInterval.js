@@ -3,7 +3,7 @@ $(function(){
     var atual = -1;
     var maximo = $('.box-especialidades').length -1;
     var timer;
-    var animacaoDelay = 2;
+    var animacaoDelay = 1;
 
     executarAnimacao();
     function executarAnimacao(){

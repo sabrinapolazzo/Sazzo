@@ -164,7 +164,7 @@ class Painel
         return $sql->fetch();
     }
 
-    public static function update($arr)
+    public static function update($arr, $single = false)
     {
         $certo = true;
         $first = false;
@@ -194,9 +194,14 @@ class Painel
         }
 
         if ($certo == true) {
-            $parametros[] = $arr['id'];
-            $sql = MySql::conectar()->prepare($Query . 'WHERE id=?');
-            $sql->execute($parametros);
+            if ($single == false) {
+                $parametros[] = $arr['id'];
+                $sql = MySql::conectar()->prepare($Query . 'WHERE id=?');
+                $sql->execute($parametros);
+            } else {
+                $sql = MySql::conectar()->prepare($Query);
+                $sql->execute($parametros);
+            }
         }
         return $certo;
     }

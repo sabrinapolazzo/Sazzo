@@ -37,9 +37,9 @@ if (isset($_COOKIE['remeber'])) {
             <input type="text" name="login" placeholder="Login...">
             <input type="password" name="password" placeholder="Senha...">
             <input type="submit" name="acao" value="Logar!">
-            <div class="remember">
-                <label style="margin-top: 10px;" class="lembrar">Lembrar-me</label>
+            <div class="remember flex">
                 <input type="checkbox" id="remember" name="remember">
+                <p for="remember" class="lembrar">Lembrar-me</p>
             </div>
             <?php
             if (isset($_POST['acao'])) {

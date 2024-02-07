@@ -50,7 +50,7 @@
 
             <?php
             $limit = 3;
-            $order = 'date';
+            $order = 'order_id';
             $table = 'tb_site.testimonial';
             $testimonial = Site::listData($table, $limit, $order);
             foreach ($testimonial as $key => $value) {
