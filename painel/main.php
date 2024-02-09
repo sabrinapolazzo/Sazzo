@@ -81,6 +81,7 @@ if (isset($_GET['loggout'])) {
     <script src="<?php echo INCLUDE_PATH ?>js/jquery.js"></script>
     <script src="<?php echo INCLUDE_PATH_PAINEL ?>js/main.js"></script>
     <script src="<?php echo INCLUDE_PATH_PAINEL ?>painel/js/forms.js"></script>
+    <script src="<?php echo INCLUDE_PATH?>painel\js\forms.js"></script>
 </body>
 
 </html>

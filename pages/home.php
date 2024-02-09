@@ -24,21 +24,16 @@
 <section class="especialidades">
     <div class="center">
         <h2 class="title">Especialidades</h2>
-        <div class="box-especialidades w33 left">
-            <h3><i class="<?php echo $infoSite['icon1'] ?>"></i></h3>
-            <h4><?php echo $infoSite['subtitle1'] ?></h4>
-            <p><?php echo $infoSite['description1'] ?></p>
-        </div><!--box-especialidades-->
-        <div class="box-especialidades w33 left">
-            <h3><i class="<?php echo $infoSite['icon2'] ?>"></i></h3>
-            <h4><?php echo $infoSite['subtitle2'] ?></h4>
-            <p><?php echo $infoSite['description2'] ?></p>
-        </div><!--box-especialidades-->
-        <div class="box-especialidades w33 left">
-            <h3><i class="<?php echo $infoSite['icon3'] ?>"></i></h3>
-            <h4><?php echo $infoSite['subtitle3'] ?></h4>
-            <p><?php echo $infoSite['description3'] ?></p>
-        </div><!--box-especialidades-->
+        <?php
+        $Specials = Site::listData('tb_admin.specials', 6, 'id');
+        foreach ($Specials as $key => $value) {
+        ?>
+            <div class="box-especialidades w33 left">
+                <h3><i class="<?php echo $value['icon'] ?>"></i></h3>
+                <h4><?php echo $value['subtitle'] ?></h4>
+                <p><?php echo $value['description'] ?></p>
+            </div><!--box-especialidades-->
+        <?php } ?>
         <div class="clear"></div>
     </div><!--center-->
 </section><!--especialidades-->

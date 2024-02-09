@@ -21,11 +21,11 @@
     background-color: var(--primary-color)
 }
 
-.bg--secundary-color {
+.bg-secundary-color {
     background-color: var(--secundary-color)
 }
 
-.bg--terciary-color {
+.bg-terciary-color {
     background-color: var(--terciary-color)
 }
 

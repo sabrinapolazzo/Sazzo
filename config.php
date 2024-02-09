@@ -23,6 +23,9 @@ define('DATABASE', 'sazzo');
 define('PASSWORD', '');
 define('USER', 'root');
 
+define('ATUALIZAR_ACAO', 'Atualizar!');
+define('INSERIR_ACAO', 'insert');
+
 // variaveis cargo painel 
 
 $cargos = [
