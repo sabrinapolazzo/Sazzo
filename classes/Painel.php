@@ -129,7 +129,7 @@ class Painel
         return $certo;
     }
 
-    public static function insertfirst($arr)
+    public static function insertFirst($arr)
     {
         $certo = true;
         $name_table = $arr['name_table'];

@@ -7,7 +7,6 @@ if (isset($_GET['delete'])) {
     Painel::redirect(INCLUDE_PATH_PAINEL . 'editar-site');
 }
 $successShown = false;
-$successShown1 = false;
 ?>
 
 <form method="post" enctype="multipart/form-data">
@@ -39,16 +38,20 @@ $successShown1 = false;
                         Painel::alertUpdate('erro', 'Erro ao atualizar os dados do site.');
                     }
                 }
+
+                // Redireciona após o término do processamento
+                header("refresh:2;url= " . INCLUDE_PATH_PAINEL . 'editar-site');
+                exit();
             }
             //Post para novos inserts
             if (isset($_POST['box_insert'])) {
                 foreach ($_POST['box_insert'] as $insertData) {
                     // Atualiza os dados do site
                     if (Painel::insertfirst($insertData)) {
-                        if (!$successShown1) {
+                        if (!$successShown) {
                             Painel::alertUpdate('success', 'Os novos dados foram inseridos com sucesso!');
                             // Define a variável de sinalização como verdadeira para indicar que a mensagem foi mostrada
-                            $successShown1 = true;
+                            $successShown = true;
                         }
                     } else {
                         Painel::alertUpdate('erro', 'Erro ao atualizar os dados do site.');
