@@ -129,6 +129,34 @@ class Painel
         return $certo;
     }
 
+    public static function insertfirst($arr)
+    {
+        $certo = true;
+        $name_table = $arr['name_table'];
+        $Query = "INSERT INTO `$name_table` VALUES (null";
+        // pegando dados da tabela
+        foreach ($arr as $key => $value) {
+            $name = $key;
+            $valor = $value;
+            if ($name == 'acao' || $name == 'name_table') {
+                continue;
+            }
+            if ($value == '') {
+                $certo = false;
+                break;
+            }
+            $Query .= ",?";
+            $parametros[] = $value;
+        }
+
+        $Query .= ")";
+        if ($certo == true) {
+            $sql = MySql::conectar()->prepare($Query);
+            $sql->execute($parametros);
+        }
+        return $certo;
+    }
+
     public static function selectAll($table, $start = null, $end = null)
     {
         if ($start == null && $end == null)
