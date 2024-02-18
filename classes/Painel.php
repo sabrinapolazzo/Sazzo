@@ -90,6 +90,29 @@ class Painel
         }
     }
 
+    public static function uploadFileGoogle($file, $userId)
+    {
+        // Pega a imagem do URL
+        $imageContent = file_get_contents($file);
+
+        // Define o caminho onde você quer salvar a imagem
+        $uploadPath = BASE_DIR_PAINEL . '/uploads/';
+
+        // Gera um nome de arquivo único (por exemplo, usando o ID do usuário)
+        $fileName = $userId . '_profile_picture.jpg';
+
+        // Caminho completo do arquivo
+        $filePath = $uploadPath . $fileName;
+
+        // Salva a imagem no caminho especificado
+        if (file_put_contents($filePath, $imageContent)) {
+            return $fileName;
+        } else {
+            return false;
+        }
+    }
+
+
     public static function deleteFile($file)
     {
         $filePath = BASE_DIR_PAINEL . '/uploads/' . $file;
