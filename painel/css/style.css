@@ -114,12 +114,17 @@ form {
     border: 2px solid var(--primary-color);
     padding-left: 10px;
     margin-top: 10px;
-    border-radius: 10px;s
+    border-radius: 10px;
 }
 
 p.lembrar {
     margin-left: 10px;
     margin-top: -2px;
+}
+
+.login-google{
+    padding: 13px 0;
+    text-align: center;
 }
 
 .box-login input[type=submit] {
